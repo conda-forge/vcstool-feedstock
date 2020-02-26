@@ -1,13 +1,13 @@
 {% set name = "vcstool" %}
-{% set version = "0.2.6" %}
+{% set version = "0.2.7" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
   url: https://github.com/dirk-thomas/{{ name }}/archive/{{ version }}.tar.gz
-  sha256: 2ecbfbf2be3d5135d4a920e1cca545f13ded26f470351abbd498c18462053e9b
+  sha256: 9dda8b1767c40f8be1fc68de5f415fd5a401bf4fee7eb2945e8235991e45adf3
 
 build:
   noarch: python
@@ -30,7 +30,7 @@ build:
     - vcs-status = vcstool.commands.status:main
     - vcs-svn = vcstool.commands.custom:svn_main
     - vcs-validate = vcstool.commands.validate:main
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv "
+  script: '{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv '
 
 requirements:
   host:
@@ -68,7 +68,7 @@ test:
     - vcs-validate --help
 
 about:
-  home: "https://github.com/dirk-thomas/vcstool"
+  home: https://github.com/dirk-thomas/vcstool
   license: Apache-2.0
   license_family: Apache
   license_file: LICENSE
