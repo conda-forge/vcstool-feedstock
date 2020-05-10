@@ -1,5 +1,5 @@
 {% set name = "vcstool" %}
-{% set version = "0.2.7" %}
+{% set version = "0.2.8" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/dirk-thomas/{{ name }}/archive/{{ version }}.tar.gz
-  sha256: 9dda8b1767c40f8be1fc68de5f415fd5a401bf4fee7eb2945e8235991e45adf3
+  sha256: cc578e07ee0322480b01ee0c54876eeddc146e7fb825bcdc15356a54575d7fab
 
 build:
   noarch: python
