@@ -5,7 +5,7 @@ Home: https://github.com/dirk-thomas/vcstool
 
 Package license: Apache-2.0
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: vcstool provides a command line tool to invoke vcs commands on multiple repositories.
 
