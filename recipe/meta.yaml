@@ -35,10 +35,10 @@ build:
 requirements:
   host:
     - pip
-    - python
+    - python >=3.6
     - setuptools
   run:
-    - python
+    - python >=3.6
     - setuptools
     - pyyaml
 
@@ -47,7 +47,6 @@ test:
     - vcstool
     - vcstool.clients
     - vcstool.commands
-    - vcstool.compat
   commands:
     - vcs --help
     - vcs-branch --help
