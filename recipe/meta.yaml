@@ -11,7 +11,7 @@ source:
 
 build:
   noarch: python
-  number: 0
+  number: 1
   entry_points:
     - vcs = vcstool.commands.vcs:main
     - vcs-branch = vcstool.commands.branch:main
@@ -35,14 +35,16 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python {{ python_min }}
     - setuptools
   run:
-    - python >=3.6
+    - python >={{ python_min }}
     - setuptools
     - pyyaml
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - vcstool
     - vcstool.clients
