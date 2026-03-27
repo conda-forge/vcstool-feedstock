@@ -17,7 +17,7 @@ build:
 
 requirements:
   run:
-    - vcs2l ${{ version }}.*
+    - vcs2l {{ version }}.*
 
 test:
   commands:
