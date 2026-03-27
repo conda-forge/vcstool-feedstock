@@ -7,7 +7,7 @@ package:
 source:
   # This source is not actually used, but it is a simple way to trigger a new release of the
   # vcstool shim package for every new vcs2l release
-  url: https://pypi.org/packages/source/v/vcs2l/vcs2l-${{ version }}.tar.gz
+  url: https://pypi.org/packages/source/v/vcs2l/vcs2l-{{ version }}.tar.gz
   sha256: 1d86e685f9e01dda271b89df1b2bd42ca5555f5c0dcbef5cc727d443f25738cd
 
 build:
