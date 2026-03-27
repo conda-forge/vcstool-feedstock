@@ -1,52 +1,25 @@
-{% set name = "vcstool" %}
-{% set version = "0.3.0" %}
+{% set version = "1.1.7" %}
 
 package:
-  name: {{ name|lower }}
+  name: vcstool
   version: {{ version }}
 
 source:
-  url: https://github.com/dirk-thomas/{{ name }}/archive/{{ version }}.tar.gz
-  sha256: 2b6e4a97454983166e9a5fe08aca41cd8b28288ef693b954bc0e8b8518eafd3b
+  # This source is not actually used, but it is a simple way to trigger a new release of the
+  # vcstool shim package for every new vcs2l release
+  url: https://pypi.org/packages/source/v/vcs2l/vcs2l-{{ version }}.tar.gz
+  sha256: 1d86e685f9e01dda271b89df1b2bd42ca5555f5c0dcbef5cc727d443f25738cd
 
 build:
-  noarch: python
+  noarch: generic
   number: 0
-  entry_points:
-    - vcs = vcstool.commands.vcs:main
-    - vcs-branch = vcstool.commands.branch:main
-    - vcs-bzr = vcstool.commands.custom:bzr_main
-    - vcs-custom = vcstool.commands.custom:main
-    - vcs-diff = vcstool.commands.diff:main
-    - vcs-export = vcstool.commands.export:main
-    - vcs-git = vcstool.commands.custom:git_main
-    - vcs-help = vcstool.commands.help:main
-    - vcs-hg = vcstool.commands.custom:hg_main
-    - vcs-import = vcstool.commands.import_:main
-    - vcs-log = vcstool.commands.log:main
-    - vcs-pull = vcstool.commands.pull:main
-    - vcs-push = vcstool.commands.push:main
-    - vcs-remotes = vcstool.commands.remotes:main
-    - vcs-status = vcstool.commands.status:main
-    - vcs-svn = vcstool.commands.custom:svn_main
-    - vcs-validate = vcstool.commands.validate:main
-  script: '{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv '
+  script: 'echo "this is a dummy package that just depends on vcs2l, no package is actually built"'
 
 requirements:
-  host:
-    - pip
-    - python >=3.6
-    - setuptools
   run:
-    - python >=3.6
-    - setuptools
-    - pyyaml
+    - vcs2l {{ version }}.*
 
 test:
-  imports:
-    - vcstool
-    - vcstool.clients
-    - vcstool.commands
   commands:
     - vcs --help
     - vcs-branch --help
